@@ -1,0 +1,14 @@
+#EXTM3U
+#EXT-X-TARGETDURATION:10
+#EXT-X-MEDIA-SEQUENCE:26
+#EXTINF:10,
+http://okinradio.cafe24.com/radio/live/mystream-00000026.ts
+#EXTINF:10,
+http://okinradio.cafe24.com/radio/live/mystream-00000027.ts
+#EXTINF:10,
+http://okinradio.cafe24.com/radio/live/mystream-00000028.ts
+#EXTINF:10,
+http://okinradio.cafe24.com/radio/live/mystream-00000029.ts
+#EXTINF:10,
+http://okinradio.cafe24.com/radio/live/mystream-00000030.ts
+#EXT-X-ENDLIST

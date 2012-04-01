@@ -1,0 +1,17 @@
+<script type='text/javascript' src='jwplayer.js'></script>
+<script type='text/javascript' src='swfobject.js'></script>
+ 
+<div id='mediaspace'>This text will be replaced</div>
+ 
+<script type='text/javascript'>
+  jwplayer('mediaspace').setup({
+    'flashplayer': 'player.swf',
+    'file': 'mpegts.stream',
+    'streamer': 'rtmp://dh8.kr:1935/live/v/mp4',
+    'image': 'http://donghee8.com/image/donghee.png',
+    'autostart': 'true',
+    'controlbar': 'none',
+    'width': '720',
+    'height': '405'
+  });
+</script>

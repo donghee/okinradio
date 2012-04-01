@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    'bufferlength': '5',
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="author" content=""/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">#outline-container-1 { clear:both; }</style>
+<link rel="stylesheet" type="text/css" href="okin_white.css" />
+<script type='text/javascript' src='live/swfobject.js'></script>
+<script type='text/javascript' src='live/jwplayer.js'></script>
+<script type="text/javascript" src="live/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="live/jquery.jwplayer.js"></script>
+<script type="text/javascript" src="live/jquery.jwbox.js"></script>
+<script type="text/javascript" src="client.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.okin.cc/radio/live/jwbox.css" />
+</head>
+<body>
+<div id="content">
+
+<h1 class="title"></h1>
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"></h2>
+<div class="outline-text-2" id="text-1">
+<div id='live'>Iphone에서는 11시 30분부터 볼 수 있어요.</div>
+<!-- 이전 방송 보기 -->
+<script type="text/javascript">
+  jwplayer('live').setup({
+    'flashplayer': 'live/player.swf',
+    'file': 'archives/Heleke_Sander_Nr_1_Aus_Berichten_der_Wach_und_Patroulendienste.mp4',
+    'image': 'http://media.tumblr.com/tumblr_lw51wkbVp41qcusid.jpg',
+    'skin': 'http://cfs.tistory.com/custom/blog/49/493776/skin/images/modieus.swf', 
+    'autostart': 'false',
+    'controlbar': 'over',
+    'width': '720',
+    'height': '480'
+  });
+</script>
+<!-- 이전 방송 보기 끝 -->
+<!-- 라이브 방송용 -->
+<!--
+<script type='text/javascript'>
+  jwplayer('live').setup({
+    'flashplayer': 'live/player.swf',
+    'file': 'stream.sdp',
+    'streamer': 'rtmp://okinradio.cafe24.com:1935/live',
+    'image': 'http://okin.cc/image/okin%20flag.jpg',
+    'skin': 'http://cfs.tistory.com/custom/blog/49/493776/skin/images/modieus.swf', 
+    'autostart': 'true',
+    'controlbar': 'over',
+    'width': '720',
+    'height': '480'
+  });
+</script>
+-->
+<!-- 라이브 방송용 끝 --> 
+
+<br/>
+
+<br>
+<br>
+<br>
+<hr width=95%>
+<br>
+
+
+<p>
+<font size="2"><b>Welcome to Okin internet radio station STUDIO+82!</b></font>
+</p>
+<p>
+<font size="2"><b>옥인 콜렉티브의 인터넷 라디오 스테이션 STUDIO+82<a href=""><font color=black> (http://okin.cc/radio) </font></a>에 오신 것을 환영합니다.</b></font>
+</p><br>
+<p>
+<font size="3"><b>STUDIO+82의 지난 방송들은 <a target="_blank" href="http://itunes.apple.com/kr/podcast/id390403115?i=86925493"><font color=blue>옥인 팟캐스트 okin Podcast</font></a>로도 들을 수 있습니다.</b></font>
+</p>
+<p>
+<font size="2"><b>itunes에서 okin을 검색하셔도 쉽게 찾으실 수 있어요.</b></font>
+</p>
+<p>
+<font size="2"><b>트위터 twitter에서 <a target="_blank" href="http://twitter.com/okinapt"><font color=blue>@okinapt</font></a>를 팔로하시면 방송소식을 확인할 수 있습니다.</b></font>
+</p>
+<p>
+<br><br><br></p>
+<p>
+<b><font size="4">* Notice 방송공지</font></b>
+</p>
+<br>
+<p>
+<b><font size="6">Radio goes on !!! </font></b>
+</p><br>
+<p>
+
+
+<b><font size="5">방송일_ 2011.12.15(Thur) 오전 11:00AM </font></b>
+</p><br>
+<b><p><font size="5">[단편영화 상영] No.1 From the Reports of Security Guards and Patrol Services(1984)</font></b>
+</p><br>
+<p><font size="3.5">
+옥인 콜렉티브의 인터넷 라디오 스테이션 STUDIO+82는 전시기간 동안 2010년 9월부터 방송된 프로그램들로 이루어진 ‘아카이브 쇼’를 기획하였다. 아카이브 쇼의 오픈에 맞춰 방송될 독일의 여성주의 영화감독 헬케 산더Helke Sander의 단편 영화 No.1 From the Reports of Security Guards and Patrol Services (1984)는 김진숙씨가 크레인에서 직접 찍은 동영상과 지역과 시간을 넘어서 한 패를 이루며 여성성, 그리고 생활의 절박한 문제, 노동, 저항의 아름다움과 힘을 응축해 드러내고 있다. 이 방송은 네덜란드의 카스코(CASCO)에서 디렉터로 활동하고 있는 최빛나씨의 참여로 이루어졌으며, 12월 27일에 있을 오픈 토크의 주제로도 다루어질 예정이다.
+</font>
+</p>
+</p><br>
+<P>
+<img src=http://media.tumblr.com/tumblr_lw51wkbVp41qcusid.jpg>
+</p>
+<br>
+<p>
+
+
+</p>
+
+<br>
+<br>
+<br>
+<hr width=95%>
+<br>
+
+<h2>List  <a href="http://okin.cc/radio/rss.xml"><img alt="RSS Icon" class="RSSIcon" border=0 src="http://cdn2.ustream.tv/static/images/rssIcon:16422.gif"></a></h2>
+
+
+<div id="radio-ustream-list">
+<script id="feed-1283688606751546" type="text/javascript" src="http://rss.bloople.net/?url=http%3A%2F%2Fwww.ustream.tv%2FOkincollective-videos.rss&showtitle=false&nocache=true&type=js&id=1283688606751546"></script>
+</div>
+
+<br>
+<br>
+<hr width=95%>
+<br>
+
+</div>
+</div>
+<div id='postamble' style='float:right;'><table style='text-align:left;cell-padding=2pt' border=0><tr><td>&copy;&nbsp;</td><td><b> Okin Collective </b></td></tr><tr><td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;okinapt@gmail.com</td></tr></table> </div>
+</div>
+</body>
+</html>

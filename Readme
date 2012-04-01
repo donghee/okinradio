@@ -1,0 +1,32 @@
+sudo apt-get install ruby gem sqlite3 libsqlite3-dev
+sudo gem install sinatra data_mapper dm-sqlite-adapter do_sqlite3
+
+install node.js
+install coffee-script
+sudo gem install coffee-script
+
+deploy
+http://www.pastbedti.me/2009/11/deploying-a-sinatra-app-with-apache-and-phusion-passenger-a-k-a-mod_rack/
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /home/okinradio/public_html/
+        RackBaseURI /radio2
+
+        <Directory /home/okinradio/public_html>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+        ErrorLog /var/log/apache2/error.log
+        LogLevel warn
+        CustomLog /var/log/apache2/access.log combined
+
+</VirtualHost>
+
+
+TODO
+ - 업로드 파일명이 같으면 업로드가 안된다.

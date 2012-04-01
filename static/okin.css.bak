@@ -1,0 +1,198 @@
+/*
+This css modified based on 
+*/
+ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fieldset, input {
+margin:0;
+padding:0;
+}
+
+body {
+background:none repeat scroll 0 0 #FAE51D;
+font-size:62.5%;
+
+-moz-background-clip:border;
+-moz-background-origin:padding;
+-moz-background-size:auto auto;
+
+background-attachment:scroll;
+background-image:url("okin_radio3.png");
+background-position:10% 0%;
+background-repeat:no-repeat;
+
+margin-bottom:0;
+margin-left:0;
+margin-right:0;
+margin-top:300px;
+overflow-x:hidden;
+padding-bottom:0;
+padding-left:0;
+padding-right:0;
+padding-top:0;
+}
+
+.outline-2 {
+background:none repeat scroll 0 0 #FAE51D;
+margin:4.6em 0;
+padding:2.7em;
+position:relative;
+//border-style:solid;
+//border-style:dashed;
+//border-color:#000000;
+}
+
+.outline-text-2 , .outline-text-3 {
+}
+
+h1 {
+font-size:2em;
+font-weight:bold;
+margin: 1em;
+}
+
+h2 {
+color:#687250;
+font-size:1.8em;
+font-weight:bold;
+//line-height:1em;
+}
+
+h3, h4, h5 {
+color:#687250;
+}
+
+.outline-2 h2 {
+margin:0 0 1em;
+}
+
+.outline-2 h3, .outline-2 h4, .outline-2 h5 {
+//margin:2em 0 1em;
+}
+
+pre {
+background:none repeat scroll 0 0 yellow;
+margin:2em;
+padding:0.1em 1.5em;
+position:relative;
+border: 0em;
+
+font-family: monospace;
+}
+
+p {
+margin:1em 0;
+
+//padding-left:15px;
+//padding-right:15px;
+}
+
+img {
+/* background:none repeat scroll 0 0 #FFFFFF; */
+/* border:1px solid #EEEEEE; */
+/* padding:7px; */
+}
+
+#postamble {
+text-align: right;
+}
+
+#content {
+font-family: "NanumGothic", "Apple Gothic", "UnGothic", "Malgun Gothic", sans-serif;
+font-size:1.3em;
+//line-height:1.5em;
+
+background:none repeat scroll 0 0 #FAE51D;
+//color:#33C628;
+
+margin:0 auto;
+max-width:46.15em;
+min-width:600px;
+
+}
+
+
+ol li, ul li {
+	line-height: 1.5em;
+}
+
+
+div#header {
+margin:0 0 -1em;
+padding:3.8em 0 0;
+position:relative;
+color: white;
+}
+
+div#postamble {
+//border-top:1px solid #FAE51D;
+font-size: 1.3em;
+color:#FFFFFF;
+padding:1em 0;
+}
+
+
+blockquote {
+background:none repeat scroll 0 0 #FAE51D;
+
+margin:2em;
+padding:0.1em 1.5em;
+position:relative;
+}
+
+a:link, a:visited, a:active  {
+background:none repeat scroll 0 0 transparent;
+//border:0 none;
+color:#FFFFFF;
+text-decoration: none
+}
+
+img {
+border:2px solid #FFFFFF;
+margin-right: 15px;
+}
+
+img, object,  embed {
+//display:block;
+//margin:2em auto;
+}
+
+ul {
+list-style:none inside none;
+padding:0 1em;
+}
+ol {
+list-style:decimal outside none;
+padding:0 2.5em;
+}
+
+ul li {
+background:url("../images/bullet.gif") no-repeat scroll 0 7px transparent;
+margin:1em 0;
+padding:0 0 0 15px;
+}
+
+ol li {
+margin:1em 0;
+}
+
+.rss2html-note {
+display:none;
+}
+
+#prev {
+}
+
+.feed-item-title {
+font-size:1.2em;
+border-top:1px solid #FAE51D;
+}
+
+p#feed-item-desc  {
+margin-top: 0em;
+}
+
+hr {
+border-style:dashed;
+border-width:2px;
+color:#000000;
+border-bottom-style:hidden;
+}

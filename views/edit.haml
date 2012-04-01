@@ -1,0 +1,39 @@
+!!! 5
+%html
+  %head
+    %title OKIN Internet Radio Station
+    %meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+    %meta(name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no")
+    %link(type="image/png" href="/favicon.png" rel="icon")
+    %link(type="text/css" href="../../manage.css" rel="stylesheet")
+    %script(type="text/javascript" src="../../client.js")
+  %body
+    .container 
+      %a{:href => '/'}
+        %img{:src => 'http://okin.cc/radio/okin_radio2.gif'}
+      .page-header 
+        .legend 
+          %h1 방송 업로드
+      %form{:method => "post", :action => '/radio/manage/upload', :enctype => 'multipart/form-data'}
+        .clearfix
+          %label{:for => 'title'} 제목:
+          .input
+            %input{:type => 'text', :name => 'title', :class => 'xlarge', :value => "#{@title}"}
+        .clearfix
+          %label{:for => 'file'} 영상:
+          .input
+            %input{:type => 'file', :name => 'file', :class => 'input-file'}
+            %span{:class => 'help-block'} 영상은 400메가 이하, mp4로
+        .clearfix
+          %label{:for => 'image'} 타이틀 이미지:
+          .input
+            %input{:type => 'file', :name => 'image', :class => 'input-file'}
+            %span{:class => 'help-block'} 이미지 크기는 1024x760 이하로
+        .clearfix
+          %label{:for => 'content'} 설명:
+          .input
+            %textarea{:name => 'content', :class => 'xxlarge medium'}
+              #{@content}
+          %br
+        .actions
+          %input{:type => 'submit', :value => 'Upload!', :class => 'btn primary'}
