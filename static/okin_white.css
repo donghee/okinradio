@@ -7,7 +7,7 @@ padding:0;
 }
 
 body {
-background:none repeat scroll 0 0 #FFFFFF;
+background:none repeat scroll 0 0 #FEFFFC;
 font-size:62.5%;
 
 -moz-background-clip:border;
@@ -30,7 +30,7 @@ padding-top:0;
 }
 
 .outline-2 {
-background:none repeat scroll 0 0 #FFFFFF;
+background:none repeat scroll 0 0 #FEFFFC;
 margin:4.6em 0;
 padding:2.7em;
 position:relative;
@@ -73,7 +73,7 @@ font-family: monospace;
 
 p {
 margin:1em 0;
-
+text-align:justify;
 }
 
 img {
@@ -121,7 +121,7 @@ color: grey;
 
 
 blockquote {
-background:none repeat scroll 0 0 #FFFFFF;
+background:none repeat scroll 0 0 #FEFFFC;
 
 margin:2em;
 padding:0.1em 1.5em;
@@ -170,7 +170,7 @@ display:none;
 
 .feed-item-title {
 font-size:1.2em;
-border-top:1px solid #FFFFFF;
+border-top:1px solid #FEFFFC;
 margin-top:3em;
 color: blue;
 }
