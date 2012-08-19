@@ -14,7 +14,7 @@
       .page-header 
         .legend 
           %h1 방송 업로드
-      %form{:method => "post", :action => '/radio/manage/upload', :enctype => 'multipart/form-data'}
+      %form{:method => "post", :action => "/radio/manage/edit/#{@id}", :enctype => 'multipart/form-data'}
         .clearfix
           %label{:for => 'title'} 제목:
           .input

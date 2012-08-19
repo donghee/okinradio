@@ -1,0 +1,63 @@
+    <form method="post" action="/radio/manage">
+      <p>라이브 방송 시작하기 </p>
+
+<% if @live %>
+      <input type="checkbox" name="live" value="live" checked> LIVE?
+<% else %>
+      <input type="checkbox" name="live" value="live"> LIVE?
+<% end %>
+
+      <br/>
+      <p>공지사항</p>
+      <textarea name="notice" cols=110 rows=40>
+<%= @notice %>
+      </textarea>
+      <br/>
+       <input type="submit" value="Save">
+    </form>
+
+<hr>
+<br>
+/////////////////////////////////////////////////////
+</br>
+
+
+
+<% @programs.each do |program| %>
+    <div class="jwbox">
+    <a href="#">
+    <h4 class="feed-item-title" style="color: #ee3497;">
+    <%= program.title %>
+    </h4>
+    <a href="manage/edit/<%= program.id %>"> 편집 <img width="24" src="edit.png"/></a>
+    <img src="archives/<%= program.image %>" border="0" width="192" height="108" vspace="3" hspace="3" align="left">
+    </a>
+	    <div class="jwbox_hidden">
+		    <div  class="jwbox_content">
+          <div id='radio_<%= program.id %>'></div>
+		    </div>
+	    </div>
+    </div>
+
+    <script type="text/javascript">
+      jwplayer('radio_<%= program.id %>').setup({
+        'flashplayer': 'live/player.swf',
+        'file': 'archives/<%= program.movie %>',
+        'image': 'archives/<%= program.image %>',
+        'skin': 'http://cfs.tistory.com/custom/blog/49/493776/skin/images/modieus.swf', 
+        'autostart': 'true',
+        'controlbar': 'over',
+        'width': '720',
+        'height': '480'
+      });
+    </script>
+    <p>
+    <%= program.content %>
+    Views: <%= program.count %>
+    </p>
+    <br/><br/>
+<% end %>
+
+<div>
+  <a href="manage/upload">Upload</a>
+</div>

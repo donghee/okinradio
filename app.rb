@@ -28,8 +28,16 @@ class Broadcasting
   property :created_at, DateTime
 end
 
+class Onair
+  include DataMapper::Resource
+  property :id, Serial
+  property :live, Boolean
+  property :notice, Text
+end
+
 DataMapper.finalize
 Broadcasting.auto_upgrade!
+Onair.auto_upgrade!
 
 class Controller < Sinatra::Base
   set :static, true
@@ -43,7 +51,9 @@ class Controller < Sinatra::Base
 
   get '/index.html' do
     #File.read(File.join(SINATRA_ROOT, "static", 'index.html'))
+    @onair = Onair.get(1)
     @programs = Broadcasting.all(:order => [ :id.desc ])
+    @recent_program = @programs.first
     erb :index
   end
 
@@ -59,13 +69,28 @@ class Controller < Sinatra::Base
 
   get '/manage/edit/:id' do
     radio = Broadcasting.get(params[:id])
+    @id = radio.id
     @title = radio.title
     @content = radio.content
+    # @file = radio.movie
+    @image = radio.image
     haml :edit
   end
 
   post '/manage/edit/:id' do
+    radio = Broadcasting.get(params[:id])
   # if have a file and image, change file and update db
+    radio.title = params[:title]
+    radio.content = params[:content]
+
+    #filename = params['file'][:filename]
+    #filename = ARCHIVE_ROOT + '/' + params['file'][:filename]
+    #if filename:
+    #   movie save
+    #   radio.movie = filename
+
+    radio.save
+    redirect '/radio/manage'
   end
 
   get '/title/:id' do 
@@ -82,11 +107,25 @@ class Controller < Sinatra::Base
     # start live broadcasting
     # broadcasting list 
     # upload new file
+
+    onair = Onair.get(1)
+    @live = onair.live
+    @notice = onair.notice
+    @programs = Broadcasting.all(:order => [ :id.desc ])
+    erb :manage_onair
   end
 
-  get '/manage/list' do
-    @programs = Broadcasting.all(:order => [ :id.desc ])
-    erb :manage_list
+  post '/manage' do
+    #onair = Onair.first_or_create({:live => true}, {:notice => 'test'})
+    onair = Onair.get(1)
+    if params[:live] == 'live'
+      onair.live = true
+    else
+      onair.live = false
+    end
+    onair.notice = params[:notice]
+    onair.save
+    redirect '/radio/manage'
   end
 
   get '/manage/upload' do

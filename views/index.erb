@@ -27,40 +27,42 @@ lang="en" xml:lang="en">
 <h2 id="sec-1"></h2>
 <div class="outline-text-2" id="text-1">
 <div id='live'>Iphone에서는 11시 30분부터 볼 수 있어요.</div>
-<!-- 이전 방송 보기 -->
-<script type="text/javascript">
-  jwplayer('live').setup({
-    'flashplayer': 'live/player.swf',
-    'file': 'archives/binna_final_2.mp4',
-    'image': 'title/14',
-    'skin': 'http://cfs.tistory.com/custom/blog/49/493776/skin/images/modieus.swf', 
-    'autostart': 'false',
-    'controlbar': 'over',
-    'width': '720',
-    'height': '480'
-  });
-</script>
-<!-- 이전 방송 보기 끝 -->
-<!-- 라이브 방송용 -->
-<!--
-<script type='text/javascript'>
-  jwplayer('live').setup({
-    'flashplayer': 'live/player.swf',
-    'file': 'stream.sdp',
-    'streamer': 'rtmp://okinradio.cafe24.com:1935/live',
-    'image': 'http://okin.cc/image/okin%20flag.jpg',
-    'skin': 'http://cfs.tistory.com/custom/blog/49/493776/skin/images/modieus.swf', 
-    'autostart': 'true',
-    'controlbar': 'over',
-    'width': '720',
-    'height': '480'
-  });
-</script>
--->
+
+<% if @onair.live %>
+  <!-- 라이브 방송용 --> 
+  <script type='text/javascript'>
+    jwplayer('live').setup({
+      'flashplayer': 'live/player.swf',
+      'file': 'stream.sdp',
+      'streamer': 'rtmp://okinradio.cafe24.com:1935/live',
+      'image': 'http://okin.cc/image/okin%20flag.jpg',
+      'skin': 'http://cfs.tistory.com/custom/blog/49/493776/skin/images/modieus.swf', 
+      'autostart': 'true',
+      'controlbar': 'over',
+      'width': '720',
+      'height': '480'
+    });
+  </script>
 <!-- 라이브 방송용 끝 --> 
+<% else %>
+  <!-- 이전 방송 보기 -->
+  <script type="text/javascript">
+    jwplayer('live').setup({
+      'flashplayer': 'live/player.swf',
+      'file': 'archives/<%= @recent_program.movie %>',
+      'image': 'title/<%= @recent_program.id %>',
+      'skin': 'http://cfs.tistory.com/custom/blog/49/493776/skin/images/modieus.swf', 
+      'autostart': 'false',
+      'controlbar': 'over',
+      'width': '720',
+      'height': '480'
+    });
+  </script>
+  <!-- 이전 방송 보기 끝 -->
+<% end %>
 
+<!-- 옥인 라디오 소개 -->
 <br/>
-
 <br>
 <br>
 <br>
@@ -91,34 +93,12 @@ After broadcasting the first show of Okin Internet Radio [STUDIO+82] on 1st Sept
 <hr>
 <br><br></p>
 <p>
-<b><font size="4.5">* Notice 방송공지</font><font size="3.5"> Radio goes on !!! </font></b>
-<br/>
-<br/>
-<p>
-<b><font size="4.5" style="color:#EE3497">방송일_ 2012.3.24(Sat) 오후 8:00PM </font></b>
-</p>
-<b><p><font size="5">OPEN TALK #1-1</font><font size="4.5"> @ Busan Museum of Art</font></b>
-</p>
-<b><p><font size="4.5">Guest_ 최빛나 Binna Choi (CASCO Director, Netherlands) </font></b>
-</p><br>
-<p>
-<font size="3.5">
-옥인 콜렉티브의 인터넷 라디오 스테이션 STUDIO+82는 "안녕없는 생활들, 모험들"(부산시립미술관, 2011.12.17-2012.2.12) 전시기간 동안 2010년 9월부터 방송된 프로그램들로 이루어진 ‘아카이브 쇼’를 기획하고 공개방송을 진행했다.<br>12월 27일에 있었던 공개방송에서는 네덜란드 카스코 디렉터인 최빛나씨가 게스트로 초대되어, 카스코에서 이루어지는 활동, <대가사혁명> 프로젝트와 관련 작품들을 소개하고 체제에 대응하는 방식으로써 예술-매체의 전략 등에 대해 이야기를 나누었다. 특히 지난 방송에서도 소개되었던 헬케 산더의 단편 영화 No. 1 From the Reports of Security Guards and Patrol Services (1984) 와 김진숙씨가 크레인에서 직접 찍은 동영상을 중심으로 이야기가 진행되었는데 이 두 영상은 지역과 시간을 넘어서 한 패를 이루며 여성성, 그리고 생활의 절박한 문제, 노동, 저항의 아름다움과 힘을 응축해 드러내고 있다.</font>
-</p>
-</p><br>
-<P>
-<img src=http://25.media.tumblr.com/tumblr_m18tp5jM1y1qcky4wo1_500.png>
-</p>
-<br>
-<p>
-<br>
-  <strong>
-  후원: 한국문화예술위원회
-</strong>
-</p>
-<br>
-<hr>
-<br>
+
+ <!-- 방송공지 -->
+
+<%= @onair.notice %>
+
+<!-- 지난 방송 -->
 
 <h2>List  <a href="http://okin.cc/radio/rss.xml"><img alt="RSS Icon" class="RSSIcon" border=0 src="http://cdn2.ustream.tv/static/images/rssIcon:16422.gif"></a></h2>
 <div id="radio-list">
@@ -166,6 +146,14 @@ After broadcasting the first show of Okin Internet Radio [STUDIO+82] on 1st Sept
 <div id="radio-ustream-list">
 <script id="feed-1283688606751546" type="text/javascript" src="http://rss.bloople.net/?url=http%3A%2F%2Fwww.ustream.tv%2FOkincollective-videos.rss&showtitle=false&nocache=true&type=js&id=1283688606751546"></script>
 </div>
+
+<!--
+
+<div id="radio-ustream-list">
+<div><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/16138913" target="_top">패닉룸 Panic Room - “당신이 원하신다면 As you like it"(2)</a></h4><p class="feed-item-desc">             </p><p>               <a href="http://www.ustream.tv/recorded/16138913"><img src="http://static-cdn2.ustream.tv/i/video/picture/0/1/16/16138/16138913/1_5579386_16138913,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>               _패닉룸-“당신이 원하신다면”(2) / 게스트_ 김동림, 임소연(장애와 인권 발바닥 행동)_ 장애인과 자립에 대한 또다른 생각! _ Panic Room-“As you like it”(2) /Guest_ Dongrim Kim, Soyeon Im(Disability and Humanrights in Action)_ Okin collective was invited 2010 Jeju Human Rights Conference and released a new work ‘Panic Room’ in the period, which was opened to all participants can talk whatever they want. This film is one of interviews recorded in the Panic Room entitled ‘As you like it’. They show another thoughts about the disabled and Independence. // 2011.7.21(Thu) 11:00AM             </p>              <p>               Length: 14:30<br>               Views: 223              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/15687022" target="_top">미켈란젤로 피스똘레또 밴드@인천 Michelangelo Pistoletto Band@Incheon</a></h4><p class="feed-item-desc">              </p><p>               <a href="http://www.ustream.tv/recorded/15687022"><img src="http://static-cdn1.ustream.tv/i/video/picture/0/1/15/15687/15687022/1_5579386_15687022,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>               미켈란젤로 피스똘레또 밴드의 신곡 뮤비를 방송합니다! 조은지, 박보나 작가의 123밴드가 미켈란젤로 피스똘레또 밴드라는 새 이름과 새 음악으로 돌아왔다. 2011년 스페이스빔 지원 작가로 선정된 미켈란젤로 피스똘레또 밴드는, 6월 11일부터 22일까지 동인천 배다리에 위치한 스페이스빔에서 인천의 보이는 도시, 혹은 보이지 않는 도시의 멜랑꼴리한 풍경을 노래한 'Forecasting’ 과 ‘허트 오브 코리아' 두 곡의 뮤직 비디오를 상영했다. *지난 상영회를 놓치신 분들은 옥인 라디오 닥본사를 권장합니다. Michelangelo Pistoletto Band New Music Videos on Okin Radio!123 Band came back with a new fancy name, Michelangelo Pistoletto Band. They had new music videos screening at Space Beam, Incheon. It shows the visible or invisible melancholy landscape of Incheon city with their new songs entitled 'forecasting' and 'heart of Korea.'**directed, performed, &amp; edited by Eunji Cho &amp; Bona Park *Forecastingtext : Eunji Cho, music : woozooso, voice : Sujung Kim *Heart of Korea / text : Bona Park, music : woozooso, voice : Vicki tts*dress transformed by Sunny Im*filmed and photographed by Byungjin Kang, Hwayong Kim*supported by Space Beam, Arts Council Korea // 2011.6.29(Wed)…              </p>              <p>               Length: 08:17<br>               Views: 262              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/15053082" target="_top">패닉룸 Panic Room - “당신이 원하신다면 As you like it"(1)</a></h4><p class="feed-item-desc">             </p><p>               <a href="http://www.ustream.tv/recorded/15053082"><img src="http://static-cdn1.ustream.tv/i/video/picture/0/1/15/15053/15053082/1_5579386_15053082,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>               _패닉룸-“당신이 원하신다면”(1) / 게스트_ 김동림, 임소연(장애와 인권 발바닥 행동)_ 시설 확충과 봉사 활동으로 장애인을 돕는다? 옥인 콜렉티브는 2010제주인권회의에 초대되어 워크샵 참가자들이 무엇이든 이야기할 수 있는 패닉룸(안전실)을 설치했다. 패닉룸에서 이루어진 ‘장애와 인권 발바닥 행동’과의 인터뷰는 장애인의 인권에 대한 우리의 상식을 부끄럽게 한다._ Panic Room-“As you like it”(1) /Guest_ Dongrim Kim, Soyeon Im(Disability and Humanrights in Action)_ Okin collective was invited 2010 Jeju Human Rights Conference and released a new work ‘Panic Room’ in the period, which was opened to all participants can talk whatever they want. This film is one of interviews recorded in the Panic Room entitled ‘As you like it’. It makes our common knowledge about rights of the disabled so shameful.// 2011.5.29(Sun) 12:00AM              </p>              <p>               Length: 25:36<br>               Views: 211              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/14147873" target="_top">Random Reading  난독(亂讀)의 발견 - 정현</a></h4><p class="feed-item-desc">              </p><p>               <a href="http://www.ustream.tv/recorded/14147873"><img src="http://static-cdn2.ustream.tv/i/video/picture/0/1/14/14147/14147873/1_5579386_14147873,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>               _ 난독(亂讀)의 발견_ 게스트-정현_미술평론가이자 독립큐레이터인 정현의 책읽기. 국내에 번역되지 않은  “L’usage de la photo”(Annie Ernaux &amp; Marc Marie)의 프랑스어 텍스트를 무작위로 독해하며 일상과 이미지, 이미지를 통한 글쓰기에 관해 이야기한다._ Random Reading_Guest- Hyun Jeong(Critic, Curator)_ He reads French text “L’usage de la photo”(Annie Ernaux &amp; Marc Marie) randomly and talks about the relations between daily life and image, writing through images.// 2011.4.20(Wed) 11:00AM             </p>              <p>               Length: 47:11<br>               Views: 362              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/13025943" target="_top">Table Talk - 잉여의 세계 The World of Ing-yeo</a></h4><p class="feed-item-desc">             </p><p>               <a href="http://www.ustream.tv/recorded/13025943"><img src="http://static-cdn2.ustream.tv/i/video/picture/0/1/13/13025/13025943/1_5579386_13025943,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>               테이블 토크"잉여의 세계"게스트- 오혜주, 수수; 서교동 잉여 오혜주 씨와 망원동 잉여 수수(마포FM '야성의 꽃다방-페마주' DJ)의 솔직 담화.인터넷상에서 사용되기 시작해서 폭넓은 지지를 받고 있는 용어인 '잉여'의 개념과 성격, 서식처 그리고 잉여의 나아갈 길._Table Talk“The world of Ing-yeo”Guest_ Hyejoo Oh, SoosooTable talk about the meaning of a rising term ‘Ing-yeo’-It’s similar to losers or marginal men but not the same- and its characteristics, habitat, the future.// 2011. 3. 1.(Tue) 11:00PM              </p>              <p>               Length: 37:39<br>               Views: 521              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/13023748" target="_top">Workshop #1-2 “후라이팬 로스팅 Frying pan roasting”</a></h4><p class="feed-item-desc">             </p><p>               <a href="http://www.ustream.tv/recorded/13023748"><img src="http://static-cdn1.ustream.tv/i/video/picture/0/1/13/13023/13023748/1_5579386_13023748,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>               집에서 하는 로스팅, 가능할까요? Roasting at home! Is it possible? 김승범 (후라이팬 커피 로스터)SeungBum Kim (Frypan coffee roaster) * BGM_허밍 어반스테레오(feat.요조) -커피 한 잔 어때,백현미-커피 한 잔 // 2011.2.21.(Mon) 9:00 PM              </p>              <p>               Length: 07:03<br>               Views: 201              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/10578098" target="_top">Round Table Talk #1-2 “옥인에서 소녀시대까지 From Okin to Girl’s Generation”</a></h4><p class="feed-item-desc">              </p><p>               <a href="http://www.ustream.tv/recorded/10578098"><img src="http://static-cdn1.ustream.tv/i/video/picture/0/1/10/10578/10578098/1_5579386_10578098,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>               조한(홍익대학교 건축학부 교수) Pf. Hahn Joh(Hongik Univ. School of Architecture/HAHN Design) ; 건축가의 시각으로 본 서울, 도시, 도시의 삶에 대한 여러가지 이야기* 2편의 주요테마는 광화문 광장! // 2010.11.1.(Mon) 8:00 PM              </p>              <p>               Length: 20:47<br>               Views: 395              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/10363449" target="_top">Workshop #1-1 “후라이팬 로스팅 Frying pan roasting”</a></h4><p class="feed-item-desc">             </p><p>               <a href="http://www.ustream.tv/recorded/10363449"><img src="http://static-cdn2.ustream.tv/i/video/picture/0/1/10/10363/10363449/1_5579386_10363449,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>               Lecturer : 김승범_ SB Kim (PINY) 집에서 하는 로스팅, 가능할까요? Roasting at home! Is it possible?  // 2010.10.23.(Sat) 12:00 PM              </p>              <p>               Length: 21:50<br>               Views: 228              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/10157093" target="_top">Round Table Talk #1-1 “옥인에서 소녀시대까지 From Okin to Girl’s Generation”</a></h4><p class="feed-item-desc">              </p><p>               <a href="http://www.ustream.tv/recorded/10157093"><img src="http://static-cdn2.ustream.tv/i/video/picture/0/1/10/10157/10157093/1_5579386_10157093,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>               조한(홍익대학교 건축학부 교수) Pf. Hahn Joh(Hongik Univ. School of Architecture/HAHN Design) ; 건축가의 시각으로 본 서울, 도시, 도시의 삶에 대한 여러가지 이야기// 2010. 10.12. (Wed) 8:00 PM               </p>              <p>               Length: 27:20<br>               Views: 1,048              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/9764364" target="_top">워킹 사운드 walking sound #01 - “함께 걸으면서 수다도 떱시다 Let’s walk and chat together</a></h4><p class="feed-item-desc">              </p><p>               <a href="http://www.ustream.tv/recorded/9764364"><img src="http://static-cdn1.ustream.tv/i/video/picture/0/1/9/9764/9764364/1_5579386_9764364,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>                 “함께 걸으면서 수다도 떱시다” (Let’s walk and chat together)는 인천 스페이스 빔 국제레지던시 참여중인 작가들(Lenny Correa, Gerard Cuartero, Mark Salvatus, Emilija Skarnulyte), 서울에서 활동하는 작가  유은주, 캐시 오 (Oh Katherine)와 함께  9월12일 일요일 오후5시 옥인동 옥인아파트 출발/한남동 테이크아웃 드로잉/녹사평까지 걸으면서 녹음한 사운드의 일부이다.   * Filming- emilija karnulyte 's contribution * Location in film- "A stage for radio station"_okin collective_2010 // 2010. 9. 23. (Thu) 8:00 PM              </p>              <p>               Length: 03:50<br>               Views: 240              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/9651598" target="_top">Music video - 123 밴드_ 박보나, 조은지 / 123 Band_Bona Park, Eunji Cho</a></h4><p class="feed-item-desc">             </p><p>               <a href="http://www.ustream.tv/recorded/9651598"><img src="http://static-cdn1.ustream.tv/i/video/picture/0/1/9/9651/9651598/1_5579386_9651598,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>                Music video_ # Artists- 박보나, 조은지 # Sound track- 1. 임대(박보나작사/우주소작곡) 2. 딴섬주인(조은지작사/우주소작곡) # Singer-안현숙 Hyunsuk Ahn # Location-"라디오를 위한 스테이지"A stage for radio station_테이크아웃드로잉 옥상 Rooftop, Takeout Drawing_옥인 콜렉티브 Okin Collective_2010 # 123 밴드 - 경기 창작 센터가 위치한 경기도 선감도 주변의, 123버스 루트에 흩어져 있는 빈박스형 건물에 대한 협업(부동산박스 빈선감도 123 프로젝트, 2010)을 계기로 2010년에 결성되었다. // 2010.9.18. (Sat) 8:00 PM              </p>              <p>               Length: 07:24<br>               Views: 342              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/9431080" target="_top">인터뷰 Interview#1-2-ARE YOU FREE? 신자유주의 시대의 자유</a></h4><p class="feed-item-desc">              </p><p>               <a href="http://www.ustream.tv/recorded/9431080"><img src="http://static-cdn1.ustream.tv/i/video/picture/0/1/9/9431/9431080/1_5579386_9431080,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>                Are you free?-신자유주의시대의 자유Liberty in neo-liberalism -김현미 교수(연세대학교, 문화인류학과)-Pf. Hyunmee Kim(Yonsei Univ., Cultural Anthropology Dept.)참여자_오혜주,노미(한국인권재단),옥인콜렉티브// 2010. 9. 8. (Wed) 8:00 PM               </p>              <p>               Length: 28:20<br>               Views: 402              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/9394694" target="_top">인터뷰 Interview#1-1-사회권이란 무엇인가? 김현미(연세대 문화인류학과 교수)</a></h4><p class="feed-item-desc">             </p><p>               <a href="http://www.ustream.tv/recorded/9394694"><img src="http://static-cdn1.ustream.tv/i/video/picture/0/1/9/9394/9394694/1_5579386_9394694,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>                사회권이란 무엇인가? What is social rights?-김현미 교수(연세대학교, 문화인류학과)-Pf. Hyunmee Kim(Yonsei Univ., Cultural Anthropology Dept.) 참여자_오혜주,노미(한국인권재단),옥인콜렉티브// 2010. 9. 6. (Mon) 8:00 PM              </p>              <p>               Length: 23:50<br>               Views: 404              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/9392460" target="_top">OPEN CUT#2-윤영중(Hair Stylist)편</a></h4><p class="feed-item-desc">              </p><p>               <a href="http://www.ustream.tv/recorded/9392460"><img src="http://static-cdn1.ustream.tv/i/video/picture/0/1/9/9392/9392460/1_5579386_9392460,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>                □ 오픈 컷_ 돈 없이 가치가 교환될 때 어떤 일이 벌어질까?    Open Cut_ What happens when value exchanges without money?- 옥인 콜렉티브의 전시 『콘크리트 아일랜드』의 오프닝 퍼포먼스인 오픈 컷(Open Cut)에서는 돈을 떠난 가치의 교환이 어떻게 실행될 수 있을까란 궁금증을 직접 시험해보고자 했습니다. 9월 1일 오후 2시부터 빈도해, 윤영중 두 분의 헤어스타일리스트는 테이크아웃드로잉에 일시적인 미용실(temporary hair salon)을 개업하고 각각의 스타일리스트가 제시한 교환 목록에 해당되는 물품 혹은 조건에 해당하는 것을 제공할 수 있는 분들과 커트 서비스를 맞교환하였습니다. - Hair Stylist_ Dohye Bin, Youngjoong Yoon////We are running a temporary hair salon with two stylists from 2pm to 7pm on Wednesday, September 1st during the opening. They exchanged hair cut service for some goods or services of participants.// 2010. 9. 6. (Mon) 3:00 PM              </p>              <p>               Length: 10:13<br>               Views: 136              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/9392056" target="_top">OPEN CUT#1-빈도해(Hair Stylist)편</a></h4><p class="feed-item-desc">              </p><p>               <a href="http://www.ustream.tv/recorded/9392056"><img src="http://static-cdn1.ustream.tv/i/video/picture/0/1/9/9392/9392056/1_5579386_9392056,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>                □ 오픈 컷_ 돈 없이 가치가 교환될 때 어떤 일이 벌어질까?    Open Cut_ What happens when value exchanges without money?- 옥인 콜렉티브의 전시 『콘크리트 아일랜드』의 오프닝 퍼포먼스인 오픈 컷(Open Cut)에서는 돈을 떠난 가치의 교환이 어떻게 실행될 수 있을까란 궁금증을 직접 시험해보고자 했습니다. 9월 1일 오후 2시부터 빈도해, 윤영중 두 분의 헤어스타일리스트는 테이크아웃드로잉에 일시적인 미용실(temporary hair salon)을 개업하고 각각의 스타일리스트가 제시한 교환 목록에 해당되는 물품 혹은 조건에 해당하는 것을 제공할 수 있는 분들과 커트 서비스를 맞교환하였습니다. - Hair Stylist_ Dohye Bin, Youngjoong Yoon////We are running a temporary hair salon with two stylists from 2pm to 7pm on Wednesday, September 1st during the opening. They exchanged hair cut service for some goods or services of participants.// 2010. 9. 6. (Mon) 3:00 PM              </p>              <p>               Length: 12:03<br>               Views: 228              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/9364135" target="_top">오프닝 퍼포먼스_Live rough cut</a></h4><p class="feed-item-desc">             </p><p>               <a href="http://www.ustream.tv/recorded/9364135"><img src="http://static-cdn2.ustream.tv/i/video/picture/0/1/9/9364/9364135/1_5579386_9364135,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>                □ 오픈 컷_ 돈 없이 가치가 교환될 때 어떤 일이 벌어질까? Open Cut_ What happens when value exchanges without money?- 9월 1일 오후 2시부터 7시까지 빈도해, 윤영중(헤어스타일리스트)은 테이크아웃드로잉에 일시적인 미용실(temporary hair salon)을 개업하고, 각각 제시한 교환 목록에 해당되는 물품 혹은 조건을 제공하는 사람과 커트 서비스를 교환하는 퍼포먼스에 참여했다._ 이것은 실시간 방송 뒤의 러프 컷. 완성본이 업데이트될 예정입니다.*BGM_Mulatu Astatke-'Yegelle./// 2010. 9. 6.(Mon) 3:00 PM               </p>              <p>               Length: 02:05<br>               Views: 189              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/9345373" target="_top">옥인동 바캉스_ Okin-dong Vacance</a></h4><p class="feed-item-desc">             </p><p>               <a href="http://www.ustream.tv/recorded/9345373"><img src="http://static-cdn2.ustream.tv/i/video/picture/0/1/9/9345/9345373/1_5579386_9345373,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>                옥인동 바캉스는 옥인 아파트 프로젝트의 첫 번째 퍼블릭 프로그램으로 강제 철거를 앞둔 옥인아파트 옥상에서 남겨진 소수의 주민과 예술가를 비롯한 다양한 참여자들이 모여 1박 2일을 머물렀던 시간에 대한 기록이다.///출연진_ 옥인 콜렉티브, 폴 어쿠스틱, 최빛나, 송수연, 부추라마, Nick Spratt, Cecil Belmont, Collective DB(정혜리, 김꽃봄, 홍희정), 미디어버스(구정연/디자인아카데미), 최성우, 박정임, 엄성진, 김나래, 최샛별, 구성연, 창파, 안국동 가옥(심재경, 심재욱), 빈도해, 옥인아파트 현재와 과거의 주민들 외 다수-*BGM_Paul Acoustic-'즐거운 영혼'//Okindong Vacance is a record of the first public program of Okin Apartment Project to stay one night and two days on the rooftop of a building with various participants including present Okin Collective and left residents who had a few months enforced demolition of Okin Apartment ahead.// 2010. 9. 1. (Wed) 2:00 PM               </p>              <p>               Length: 08:44<br>               Views: 292              </p>            <p></p><h4 class="feed-item-title"><a href="http://www.ustream.tv/recorded/9345348" target="_top">coming soon!</a></h4><p class="feed-item-desc">             </p><p>               <a href="http://www.ustream.tv/recorded/9345348"><img src="http://static-cdn1.ustream.tv/i/video/picture/0/1/9/9345/9345348/1_5579386_9345348,192x108,b,1:2.jpg" border="0" width="192" height="108" vspace="3" hspace="3" align="left"></a>                2010-09-01 2pm 첫 방송 시작합니다. _ 옥인동 바캉스              </p>              <p>               Length: 00:11<br>               Views: 81             </p>            <p></p><div class="rss2html-note" style="float: right;"><a href="http://rss.bloople.net/" style="color: #000000;">Powered by rss2html</a></div><div class="rss2html-note-clear" style="clear: right; height: 0;"></div></div><script id="feed-1283688606751546" type="text/javascript" src="http://rss.bloople.net/?url=http%3A%2F%2Fwww.ustream.tv%2FOkincollective-videos.rss&amp;showtitle=false&amp;nocache=true&amp;type=js&amp;id=1283688606751546"></script>
+</div>
+ 
+-->
 
 <br>
 <br>
