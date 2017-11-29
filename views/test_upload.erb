@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OKIN Internet Radio Station</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <meta content='width=device-width, height=device-height, initial-scale=1.0, user-scalable=no' name='viewport'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='../manage.css' rel='stylesheet' type='text/css'>
+    <script src='../client.js' type='text/javascript'></script>
+    <script type="text/javascript" src="../live/swfobject.js"></script>
+    <script type="text/javascript" src="../live/jwplayer.js"></script>
+    <script type="text/javascript" src="../live/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="../live/jquery.jwplayer.js"></script>
+    <script type="text/javascript" src="../live/jquery.jwbox.js"></script>
+
+  </head>
+  <body>
+    <div class='container'>
+      <a href='/'>
+        <img src='http://okin.cc/radio/okin_radio2.gif'>
+      </a>
+
+      <div align='center' class='test' style="width:800px; margin:0 auto;">
+        test
+        <br><br>
+        <div id="live_wrapper" style="position: relative; width: 720px; height: 480px;">
+          <object type="application/x-shockwave-flash" data="../live/player.swf" width="100%" height="100%" bgcolor="#000000" id="live" name="live" tabindex="0"><param name="allowfullscreen" value="true"><param name="allowscriptaccess" value="always">
+            <param name="seamlesstabbing" value="true"><param name="wmode" value="opaque"><param name="flashvars" value="netstreambasepath=http%3A%2F%2Fokin.cc%2Fradio%2Findex.html&amp;id=live&amp;file=archives%2Ftest.mp4&amp;image=title%2F16&amp;skin=http%3A%2F%2Fokin.cc%2Fradio%2Flive%2Fmodieus.swf&amp;stretching=exactfit&amp;autostart=false&amp;controlbar.position=over">
+          </object>
+        </div>
+        <br><br>
+      </div>
+
+      <div class='page-header'>
+        <div class='legend'>
+          <h1>방송 업로드 테스트</h1>
+        </div>
+      </div>
+
+      <form action='/radio/manage/upload' enctype='multipart/form-data' method='post'>
+        <div class='clearfix'>
+          <label for='title'>제목:</label>
+          <div class='input'>
+            <input class='xlarge' name='title' type='text'>
+          </div>
+        </div>
+        <div class='clearfix'>
+          <label for='file'>영상:</label>
+          <div class='input'>
+            <input class='input-file' name='file' type='file'>
+            <span class='help-block'>영상은 400메가 이하, mp4로</span>
+          </div>
+        </div>
+        <div class='clearfix'>
+          <label for='image'>타이틀 이미지:</label>
+          <div class='input'>
+            <input class='input-file' name='image' type='file'>
+            <span class='help-block'>이미지 크기는 1024x760 이하로</span>
+          </div>
+        </div>
+        <div class='clearfix'>
+          <label for='content'>설명:</label>
+          <div class='input'>
+            <textarea class='xxlarge medium' name='content'></textarea>
+          </div>
+          <br>
+        </div>
+        <div class='actions'>
+          <input class='btn primary' type='submit' value='Upload!'>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

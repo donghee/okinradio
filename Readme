@@ -1,32 +1,66 @@
-sudo apt-get install ruby gem sqlite3 libsqlite3-dev
+# Install
+
+```
+sudo apt-get install ruby sqlite3 libsqlite3-dev
+sudo apt-get install -y libapache2-mod-passenger
 sudo gem install sinatra data_mapper dm-sqlite-adapter do_sqlite3
+sudo gem install passenger
 
-install node.js
-install coffee-script
+
+```
+
+## install node.js
+
+```
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+## install coffee-script
+
+```
+sudo npm install coffee-script
 sudo gem install coffee-script
+```
 
-deploy
-http://www.pastbedti.me/2009/11/deploying-a-sinatra-app-with-apache-and-phusion-passenger-a-k-a-mod_rack/
+# Deploy
 
+```
 <VirtualHost *:80>
-        ServerAdmin webmaster@localhost
+	ServerAdmin webmaster@localhost
 
-        DocumentRoot /home/okinradio/public_html/
-        RackBaseURI /radio2
+	DocumentRoot /home/okinradio/public_html
 
-        <Directory /home/okinradio/public_html>
-                Options Indexes FollowSymLinks MultiViews
-                AllowOverride None
-                Order allow,deny
-                allow from all
-        </Directory>
+	RackBaseURI /radio
+  PassengerFriendlyErrorPages on
 
-        ErrorLog /var/log/apache2/error.log
-        LogLevel warn
-        CustomLog /var/log/apache2/access.log combined
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride None
+	</Directory>
+
+
+	<Directory /home/okinradio/public_html>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		#Order allow,deny
+		#allow from all
+    Require all granted
+    Options -MultiViews
+	</Directory>
+
+	ErrorLog /var/log/apache2/error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+
+	CustomLog /var/log/apache2/access.log combined
 
 </VirtualHost>
+```
 
-
-TODO
+# TODO
  - 업로드 파일명이 같으면 업로드가 안된다.
+ - MP4Box -hint
+ - 720x480으로 만들기

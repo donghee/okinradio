@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="author" content=""/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">#outline-container-1 { clear:both; }</style>
+<link rel="stylesheet" type="text/css" href="okin_white.css" />
+<script type='text/javascript' src='live/swfobject.js'></script>
+<script type='text/javascript' src='live/jwplayer.js'></script>
+<script type="text/javascript" src="live/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="live/jquery.jwplayer.js"></script>
+<script type="text/javascript" src="live/jquery.jwbox.js"></script>
+<script type="text/javascript" src="client.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.okin.cc/radio/live/jwbox.css" />
+</head>
+<body>
+<div id="content">
+
+<h1 class="title"></h1>
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"></h2>
+<div class="outline-text-2" id="text-1">
+<div id='live'>Iphone에서는 실시간 방송을 볼 수 없습니다. 다시 보기는 곧 공지 하겠습니다.</div>
+
+  <script type='text/javascript'>
+    jwplayer('live').setup({
+      'flashplayer': 'live/player.swf',
+      'file': 'stream.sdp',
+      'streamer': 'rtmp://okinradio.cafe24.com:1935/live',
+      'image': 'http://okin.cc/image/okin%20flag.jpg',
+      'skin': 'http://okin.cc/radio/live/modieus.swf', 
+      'autostart': 'true',
+      'controlbar': 'over',
+      'stretching': 'exactfit',
+      'width': '1280',
+      'height': '720'
+    });
+  </script>
+</div>
+</div>
+<br/>
+<div id='postamble' style='float:right;'><table style='text-align:left;cell-padding=2pt' border=0><tr><td>&copy;&nbsp;</td><td><b> Okin Collective </b></td></tr><tr><td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;okinapt@gmail.com</td></tr></table> </div>
+</div>
+</body>
+</html>

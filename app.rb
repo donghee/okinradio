@@ -57,6 +57,14 @@ class Controller < Sinatra::Base
     erb :index
   end
 
+  get '/live.html' do
+    erb :live
+  end
+
+  get '/livecoding.html' do
+    erb :livecoding
+  end
+
   get '/client.js' do
     content_type "text/javascript"
     coffee :client
@@ -128,6 +136,31 @@ class Controller < Sinatra::Base
     redirect '/radio/manage'
   end
 
+  get '/manage/test' do
+    erb :test_upload
+  end
+
+  post '/manage/test' do
+    html = ''
+    filename = ARCHIVE_ROOT + '/' + 'test.mp4'
+    File.open(filename, "w") do |f|
+      f.write(params['file'][:tempfile].read)
+    end
+    html += filename
+
+    imagefile = ARCHIVE_ROOT + '/' + 'test.png'
+    File.open(imagefile, "w") do |f|
+      f.write(params['image'][:tempfile].read)
+    end
+    html += imagefile
+    html += params[:title]
+    html += params[:content]
+
+    redirect '/manage/test'
+  end
+
+
+
   get '/manage/upload' do
     haml :upload
   end
@@ -156,7 +189,14 @@ class Controller < Sinatra::Base
     html += params[:title]
     html += params[:content]
 
+    # system('MP4Box -hint '+ filename)
+
     redirect '/radio'
     # return "The file was successfully uploaded!"
   end
 end
+
+get '/' do
+  'Put this in your pipe & smoke it!'
+end
+
