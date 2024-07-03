@@ -3,7 +3,7 @@ require 'sinatra'
 require 'sinatra/base'
 require 'data_mapper'
 require 'haml'
-require 'coffee_script'
+#require 'coffee_script'
 
 # Strip the last / from the path
 #before do 
@@ -41,15 +41,17 @@ Onair.auto_upgrade!
 
 class Controller < Sinatra::Base
   set :static, true
-  set :port, 1111
+#  set :port, 1111
+  set :bind, '0.0.0.0'
   set :public_folder, File.join(SINATRA_ROOT, "static")
   set :haml, :format => :html5
+  set :views, Proc.new { File.join(root, "views") }
 
-  get '/?' do
-    redirect '/radio/index.html'
-  end
+#  get '/?' do
+#    redirect '/radio/index.html'
+#  end
 
-  get '/index.html' do
+  get '/' do
     #File.read(File.join(SINATRA_ROOT, "static", 'index.html'))
     @onair = Onair.get(1)
     @programs = Broadcasting.all(:order => [ :id.desc ])
@@ -67,7 +69,7 @@ class Controller < Sinatra::Base
 
   get '/client.js' do
     content_type "text/javascript"
-    coffee :client
+    #coffee :client
   end
 
   get '/manage/delete/:id' do
@@ -196,7 +198,9 @@ class Controller < Sinatra::Base
   end
 end
 
-get '/' do
-  'Put this in your pipe & smoke it!'
-end
+#get '/' do
+  #'Put this in your pipe & smoke it!'
+#end
 
+
+run Controller.run!

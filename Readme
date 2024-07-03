@@ -64,3 +64,13 @@ sudo gem install coffee-script
  - 업로드 파일명이 같으면 업로드가 안된다.
  - MP4Box -hint
  - 720x480으로 만들기
+
+# 2024 06
+
+use docker
+
+```
+cd docker
+./run.sh
+```
+
